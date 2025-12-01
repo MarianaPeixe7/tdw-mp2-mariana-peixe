@@ -45,7 +45,7 @@ jobs:
       - run: npm run build
 
   deploy:
-    name: ☁ Deploy to Netlify
+    name: Deploy to Netlify
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -58,5 +58,5 @@ jobs:
     - run: npm ci
     - run: npm run build
 
-    - name: 🚀 Deploy
+    - name: Deploy
       run: npx netlify deploy --dir=dist --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
