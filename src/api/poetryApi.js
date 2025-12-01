@@ -1,4 +1,3 @@
-// src/api/poetryApi.js
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const poetryApi = createApi({
