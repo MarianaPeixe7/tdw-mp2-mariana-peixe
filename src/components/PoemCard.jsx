@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFavorite, removeFavorite } from '../store/favoritesSlice'
+import PropTypes from "prop-types"  
 
 export default function PoemCard({ poem }) {
   const dispatch = useDispatch()
@@ -36,3 +37,11 @@ export default function PoemCard({ poem }) {
     </article>
   )
 }
+
+PoemCard.propTypes = {
+  poem: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string,
+    lines: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
