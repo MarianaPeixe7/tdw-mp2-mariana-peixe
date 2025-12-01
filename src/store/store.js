@@ -1,5 +1,9 @@
+import { configureStore } from '@reduxjs/toolkit';
+
+const dummy = (state = {}) => state; // reducer vazio para resolver o erro
+
 export default configureStore({
-    reducer: {
-         // reducers futuros ficam aqui → poemsSlice, favoritesSlice, themeSlice etc.
-    },
+  reducer: {
+    dummy
+  }
 });
