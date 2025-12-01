@@ -5,7 +5,7 @@ import Loading from '../components/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFavorite, removeFavorite } from '../store/favoritesSlice'
 
-const LINES_PER_PAGE = 15
+const LINES_PER_PAGE = 20
 
 export default function PoemDetail() {
   const { title } = useParams()
