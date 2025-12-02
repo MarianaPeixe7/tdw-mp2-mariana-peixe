@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Poems from "./pages/Poems";
 import PoemDetail from "./pages/PoemDetail";
 import About from "./pages/About";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/poems" element={<Poems />} />
           <Route path="/poems/:title" element={<PoemDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/favorites" element={<Favorites />} /> {/* nova rota */}
         </Routes>
       </div>
     </div>
