@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import MiniLogo from "../assets/Shakespeare-MiniLogo-branco.svg";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -15,9 +16,14 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
 
           {/* Left - Logo */}
-          <div className="flex items-center gap-3">
-            <Link to="/" className="text-white font-bold text-xl tracking-wide">
-              Shakespeare Poetry
+          <div className="flex items-center gap-3 font-shakespeare">
+            <Link to="/" className="text-white font-bold text-xl tracking-wide flex items-center gap-2">
+                <img
+                    src={MiniLogo}
+                    alt="Shakespeare Mini Poetry Logo"
+                    className="h-8 drop-shadow-xl"
+                    />
+                <p>Shakespeare Poetry</p>
             </Link>
           </div>
 
