@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header className="bg-[#8D2929] fixed w-full z-50 shadow-md">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
 
           {/* Left - Logo */}
