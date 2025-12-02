@@ -29,7 +29,7 @@ export default function Poems() {
       {/* HEADER */}
       <header className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
         <h2 className="text-4xl font-shakespeare text-gold drop-shadow">
-          Shakespeare's Poems
+          Shakespeare&apos;s Poems
         </h2>
 
         <input
