@@ -5,6 +5,7 @@ import Poems from "./pages/Poems";
 import PoemDetail from "./pages/PoemDetail";
 import About from "./pages/About";
 import Favorites from "./pages/Favorites";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />} /> {/* nova rota */}
         </Routes>
       </div>
+      <Footer/>
     </div>
   );
 }
