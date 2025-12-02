@@ -1,47 +1,64 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { addFavorite, removeFavorite } from '../store/favoritesSlice'
-import PropTypes from "prop-types"  
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../store/favoritesSlice";
+import PropTypes from "prop-types";
+import { Heart, HeartOff } from "lucide-react";
 
 export default function PoemCard({ poem }) {
-  const dispatch = useDispatch()
-  const favs = useSelector((s) => s.favorites.items)
-  const isFav = favs.some((p) => p.title === poem.title)
+  const dispatch = useDispatch();
+  const favs = useSelector((s) => s.favorites.items);
+  const isFav = favs.some((p) => p.title === poem.title);
 
   const toggleFav = () => {
-    if (isFav) dispatch(removeFavorite({ title: poem.title }))
-    else dispatch(addFavorite({ title: poem.title, author: poem.author }))
-  }
+    if (isFav) dispatch(removeFavorite({ title: poem.title }));
+    else dispatch(addFavorite({ title: poem.title, author: poem.author }));
+  };
 
   return (
-    <article className="bg-white/5 p-4 rounded-md border border-zinc-800 shadow-sm">
-      <h3 className="font-serif text-lg text-purple-300">{poem.title}</h3>
-      <p className="text-sm text-zinc-400 mt-2">{poem.author}</p>
-      <p className="mt-3 italic text-zinc-300 text-sm line-clamp-3">
-        {poem.lines.slice(0, 3).join(' ')}...
-      </p>
+    <article
+      className="h-full flex flex-col justify-between overflow-visible
+                 bg-zinc-900/60 backdrop-blur-sm p-5 rounded-xl border border-gold/20
+                 shadow-lg transition-transform duration-300 will-change-transform
+                 hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <div>
+        {/* TITLE */}
+        <h3 className="font-shakespeare text-xl text-gold mb-1 drop-shadow-sm">
+          {poem.title}
+        </h3>
 
-      <div className="mt-4 flex justify-between items-center">
-        <Link to={`/poems/${encodeURIComponent(poem.title)}`} className="text-sm underline">
-          Ver poema
+        {/* POEM PREVIEW */}
+        <p className="mt-2 text-zinc-200/90 text-sm line-clamp-3 leading-relaxed">
+          {poem.lines?.slice(0, 3).join(" ")}...
+        </p>
+      </div>
+
+      {/* FOOTER ficar sempre no fim */}
+      <div className="mt-5 flex items-center justify-between gap-3">
+        <Link
+          to={`/poems/${encodeURIComponent(poem.title)}`}
+          className="text-sm text-gold hover:underline font-medium"
+        >
+          See poem
         </Link>
 
         <button
           onClick={toggleFav}
-          className={`px-3 py-1 rounded text-sm ${isFav ? 'bg-yellow-400 text-black' : 'bg-zinc-800'}`}
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition
+            ${isFav ? "bg-gold text-black border-gold" : "bg-zinc-800 border-zinc-700 text-zinc-200"}
+          `}
         >
-          {isFav ? 'Remover' : 'Favorito'}
+          {isFav ? <><HeartOff size={16} /> Remove</> : <><Heart size={16} /> Favorite</>}
         </button>
       </div>
     </article>
-  )
+  );
 }
 
 PoemCard.propTypes = {
   poem: PropTypes.shape({
     title: PropTypes.string.isRequired,
     author: PropTypes.string,
-    lines: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired
+    lines: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
 };
