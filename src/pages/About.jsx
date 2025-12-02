@@ -1,8 +1,15 @@
 export default function About() {
-    return (
-        <div className="p-6 pt-24 max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold text-purple-300">About This Project</h2>
-            <p className="mt-3 text-zinc-400">Para TDW — miniprojeto 2</p>
-        </div>
-    );
+  return (
+    <section className="pt-28 px-6 min-h-screen bg-wine text-white font-sans max-w-5xl mx-auto">
+      <header className="text-center mb-10">
+        <h2 className="text-4xl font-shakespeare text-gold drop-shadow mb-4">
+          About This Project
+        </h2>
+        <p className="text-zinc-300 text-lg leading-relaxed">
+          For TDW class - Miniproject 2. This website presents Shakespeare&apos;s poetry. 
+          You can search for specific poems and add them to your favorites.
+        </p>
+      </header>
+    </section>
+  );
 }
