@@ -3,7 +3,7 @@
 This is a mini-project developed for the TDW course at the University of Aveiro.  
 It showcases the poetry of William Shakespeare through an interactive web interface.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5f508429-b3dc-4946-b532-e1bd13ed9ffb/deploy-status)](https://app.netlify.com/projects/euphonious-belekoy-975e57/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5f508429-b3dc-4946-b532-e1bd13ed9ffb/deploy-status)](https://app.netlify.com/projects/mp2-mariana-peixe/deploys)
 [![CI / Lint + Test + Build + Deploy](https://github.com/MarianaPeixe7/tdw-mp2-mariana-peixe/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MarianaPeixe7/tdw-mp2-mariana-peixe/actions/workflows/ci.yml)
 
 ## Features
