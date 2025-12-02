@@ -1,18 +1,31 @@
-# React + Vite
+# Shakespeare Poetry
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a mini-project developed for the TDW course at the University of Aveiro.  
+It showcases the poetry of William Shakespeare through an interactive web interface.
 
-Currently, two official plugins are available:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5f508429-b3dc-4946-b532-e1bd13ed9ffb/deploy-status)](https://app.netlify.com/projects/euphonious-belekoy-975e57/deploys)
+[![CI / Lint + Test + Build + Deploy](https://github.com/MarianaPeixe7/tdw-mp2-mariana-peixe/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MarianaPeixe7/tdw-mp2-mariana-peixe/actions/workflows/ci.yml)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Browse a collection of Shakespeare's poems
+- Search poems by title
+- View poem details with lazy-loaded verses
+- Add or remove poems from your favorites
+- Responsive design with elegant typography:
+  - Titles: Times New Roman (serif)
+  - Body: Poppins (sans-serif)
+- CI/CD pipeline with GitHub Actions
+- Deployment to Netlify with a custom domain via Cloudflare
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Tech
 
-Note: This will impact Vite dev & build performances.
+- React with React Router
+- Redux for state management (favorites)
+- TailwindCSS for styling
+- Netlify for deployment
+- GitHub Actions for CI/CD
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Author:
+Mariana Peixe N.º Mec.: 113262

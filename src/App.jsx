@@ -5,10 +5,11 @@ import Poems from "./pages/Poems";
 import PoemDetail from "./pages/PoemDetail";
 import About from "./pages/About";
 import Favorites from "./pages/Favorites";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-[#8D2929] text-white">
       <Navbar />
       <div className="p-6">
         <Routes>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />} /> {/* nova rota */}
         </Routes>
       </div>
+      <Footer/>
     </div>
   );
 }
