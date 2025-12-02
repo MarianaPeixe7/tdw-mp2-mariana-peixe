@@ -63,7 +63,7 @@ export default function Poems() {
           Back
         </button>
 
-        <span className="text-gold font-shakespeare text-lg">
+        <span className="text-gold text-lg">
           Page {page + 1} / {pageCount || 1}
         </span>
 
