@@ -8,7 +8,7 @@ import Favorites from "./pages/Favorites";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-[#8D2929] text-white">
       <Navbar />
       <div className="p-6">
         <Routes>
