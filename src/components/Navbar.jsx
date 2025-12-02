@@ -1,12 +1,70 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-export default function Navbar() {
-    return (
-        <nav className="fixed top-0 left-0 w-full bg-zinc-900 border-b border-zinc-700 p-4 flex gap-6 justify-center">
-            <Link className="hover:text-purple-400" to="/">Home</Link>
-            <Link className="hover:text-purple-400" to="/poems">Poems</Link>
-            <Link className="hover:text-purple-400" to="/about">About</Link>
-            <Link className="hover:text-purple-400" to="/favorites">Favoritos</Link>
-        </nav>
-    );
+export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  const navClasses = ({ isActive }) =>
+    isActive
+      ? "text-white font-semibold border-b border-white"
+      : "text-red-100 hover:text-white transition";
+
+  return (
+    <header className="bg-[#8D2929] fixed w-full z-50 shadow-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+
+          {/* Left - Logo */}
+          <div className="flex items-center gap-3">
+            <Link to="/" className="text-white font-bold text-xl tracking-wide">
+              Shakespeare Poetry
+            </Link>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex items-center gap-6 text-sm">
+              <li><NavLink to="/" className={navClasses}>Home</NavLink></li>
+              <li><NavLink to="/poems" className={navClasses}>Poems</NavLink></li>
+              <li><NavLink to="/favorites" className={navClasses}>Favorites</NavLink></li>
+              <li><NavLink to="/about" className={navClasses}>About</NavLink></li>
+            </ul>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="block md:hidden p-2 text-white"
+            onClick={() => setOpen(!open)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Menu Drawer */}
+        {open && (
+          <nav className="md:hidden pb-4">
+            <ul className="flex flex-col gap-4 text-sm text-red-100">
+              <li><NavLink onClick={() => setOpen(false)} to="/" className={navClasses}>Home</NavLink></li>
+              <li><NavLink onClick={() => setOpen(false)} to="/poems" className={navClasses}>Poems</NavLink></li>
+              <li><NavLink onClick={() => setOpen(false)} to="/favorites" className={navClasses}>Favorites</NavLink></li>
+              <li><NavLink onClick={() => setOpen(false)} to="/about" className={navClasses}>About</NavLink></li>
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
 }
