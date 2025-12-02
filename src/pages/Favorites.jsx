@@ -4,7 +4,7 @@ import { addFavorite, removeFavorite } from "../store/favoritesSlice";
 import { Heart, HeartOff } from "lucide-react";
 
 export default function Favorites() {
-  const favs = useSelector((state) => state.favorites.items);
+  const favs = useSelector((state) => state.favorites.items); //acesso ao favorites da store
   const dispatch = useDispatch();
 
   const toggleFav = (poem) => {
@@ -13,6 +13,7 @@ export default function Favorites() {
     else dispatch(addFavorite({ title: poem.title, author: poem.author }));
   };
 
+  //quando nao há favoritos
   if (favs.length === 0) {
     return (
       <div className="pt-28 px-6 min-h-screen font-sans bg-wine text-white text-center">
@@ -26,6 +27,7 @@ export default function Favorites() {
     );
   }
 
+  //há favs!
   return (
     <section className="min-h-screen bg-wine text-white pt-28 px-6 font-sans">
       <h2 className="text-4xl font-shakespeare text-gold drop-shadow mb-10">
@@ -33,7 +35,7 @@ export default function Favorites() {
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch auto-rows-fr">
-        {favs.map((poem) => {
+        {favs.map((poem) => {    {/*mapeia os favoritos*/}
           const isFav = favs.some((p) => p.title === poem.title);
           return (
             <div key={poem.title} className="h-full">

@@ -17,7 +17,7 @@ function App() {
           <Route path="/poems" element={<Poems />} />
           <Route path="/poems/:title" element={<PoemDetail />} />
           <Route path="/about" element={<About />} />
-          <Route path="/favorites" element={<Favorites />} /> {/* nova rota */}
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </div>
       <Footer/>

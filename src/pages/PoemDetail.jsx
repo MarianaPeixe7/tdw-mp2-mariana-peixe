@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useGetPoemByTitleQuery } from '../api/poetryApi';
 import Loading from '../components/Loading';
@@ -6,18 +6,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, removeFavorite } from '../store/favoritesSlice';
 import { Heart, HeartOff } from 'lucide-react';
 
-const LINES_PER_PAGE = 20;
+const LINES_PER_PAGE = 20; //versos iniciais visiveis de cada poema, depois vê-se o resto com lazy loading
 
 export default function PoemDetail() {
   const { title } = useParams();
   const decoded = decodeURIComponent(title);
-  const { data, isLoading, isError } = useGetPoemByTitleQuery(decoded);
+  const { data, isLoading, isError } = useGetPoemByTitleQuery(decoded); //pede titulo à API
   const dispatch = useDispatch();
   const favs = useSelector((s) => s.favorites.items);
   const isFav = favs.some((p) => p.title === decoded);
 
   const [linesToShow, setLinesToShow] = useState(LINES_PER_PAGE);
-  const loadMoreRef = useRef(null);
+  const loadMoreRef = useRef(null); //fica à "escuta" para ver onde o utilizador vai na pagina, quando preciso carrega mais versos do poema
 
   useEffect(() => {
     if (!loadMoreRef.current || !data?.lines) return;
@@ -59,7 +59,7 @@ export default function PoemDetail() {
         </h1>
       </header>
 
-      {/* Poem lines */}
+      {/* linhas dos poemas */}
       <div className="whitespace-pre-line leading-relaxed text-zinc-200 font-poppins text-base">
         {visibleLines.map((line, idx) => (
           <p key={idx}>{line}</p>
@@ -79,10 +79,8 @@ export default function PoemDetail() {
           {isFav ? <><HeartOff size={16} /> Remove favorite</> : <><Heart size={16} /> Add favorite</>}
         </button>
 
-        <Link
-          to="/poems"
-          className="px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-200 hover:bg-zinc-700 transition"
-        >
+        <Link to="/poems"
+          className="px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-200 hover:bg-zinc-700 transition">
           Back
         </Link>
       </div>
