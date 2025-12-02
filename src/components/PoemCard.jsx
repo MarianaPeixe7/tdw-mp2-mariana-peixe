@@ -4,7 +4,9 @@ import { addFavorite, removeFavorite } from "../store/favoritesSlice";
 import PropTypes from "prop-types";
 import { Heart, HeartOff } from "lucide-react";
 
+//recebe poema por props
 export default function PoemCard({ poem }) {
+  //favs do redux
   const dispatch = useDispatch();
   const favs = useSelector((s) => s.favorites.items);
   const isFav = favs.some((p) => p.title === poem.title);
@@ -22,18 +24,18 @@ export default function PoemCard({ poem }) {
                  hover:-translate-y-2 hover:shadow-2xl"
     >
       <div>
-        {/* TITLE */}
+        {/* titulo */}
         <h3 className="font-shakespeare text-xl text-gold mb-1 drop-shadow-sm">
           {poem.title}
         </h3>
 
-        {/* POEM PREVIEW */}
+        {/* preview poema, nao passa de 3 versos/linhas */}
         <p className="mt-2 text-zinc-200/90 text-sm line-clamp-3 leading-relaxed">
           {poem.lines?.slice(0, 3).join(" ")}...
         </p>
       </div>
 
-      {/* FOOTER ficar sempre no fim */}
+      {/* footer do card, para ver poema completo ou para adicionar aos favs */}
       <div className="mt-5 flex items-center justify-between gap-3">
         <Link
           to={`/poems/${encodeURIComponent(poem.title)}`}
@@ -55,6 +57,7 @@ export default function PoemCard({ poem }) {
   );
 }
 
+//validação de dados esperados, porque deu erros algumas vezes e encontrei esta solucao
 PoemCard.propTypes = {
   poem: PropTypes.shape({
     title: PropTypes.string.isRequired,

@@ -7,15 +7,15 @@ export default function Header() {
 
   const navClasses = ({ isActive }) =>
     isActive
-      ? "text-white font-semibold border-b border-white"
-      : "text-red-100 hover:text-white transition";
+      ? "text-white font-semibold border-b border-white" //rota ativa estilo
+      : "text-red-100 hover:text-white transition"; //rota inativa estilo
 
   return (
     <header className="bg-[#8D2929] fixed w-full z-50 shadow-md">
       <div className="mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
 
-          {/* Left - Logo */}
+          {/* esquerda - Logo */}
           <div className="flex items-center gap-3 font-shakespeare">
             <Link to="/" className="text-white font-bold text-xl tracking-wide flex items-center gap-2">
                 <img
@@ -27,7 +27,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Portatil rotas*/}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-6 text-sm">
               <li><NavLink to="/" className={navClasses}>Home</NavLink></li>
@@ -37,7 +37,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Botao Mobile Menu */}
           <button
             className="block md:hidden p-2 text-white"
             onClick={() => setOpen(!open)}
@@ -59,7 +59,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu Drawer */}
+        {/* Mobile Menu Aberto -rotas */}
         {open && (
           <nav className="md:hidden pb-4">
             <ul className="flex flex-col gap-4 text-sm text-red-100">
